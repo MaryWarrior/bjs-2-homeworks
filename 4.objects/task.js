@@ -11,26 +11,17 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.addMarks = function (...marks) {
     if(this?.marks){
-        if(marks != ''){
-            for (let i = 0; i < marks.length; i++) {
-                    this.marks.push(marks[i]);
-            }
-        }
+        this.marks.push(...marks);
     }
 }
 
 Student.prototype.getAverage = function () {
-    if(this?.marks){
-        if(this.marks.length > 0){
-            let countMarks = 0;
-            let summMarks = 0;
-            for (let i = 0; i < this.marks.length; i++) {
-                summMarks = summMarks + this.marks[i]
-                countMarks = countMarks + 1;
-            }
-            average = summMarks/countMarks;
-            return average;
-        } else return 0;
+    if(this?.marks && this.marks.length > 0){
+        let summMarks = 0;
+        for (let i = 0; i < this.marks.length; i++) {
+            summMarks = summMarks + this.marks[i]
+        }
+        return summMarks/this.marks.length;
     } else return 0;
 }
 
