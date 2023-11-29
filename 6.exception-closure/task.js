@@ -1,7 +1,8 @@
 ﻿function parseCount(value){
-    if(Number.isNaN(Number.parseFloat(value))){
+    $parsValue = Number.parseFloat(value);
+    if(Number.isNaN($parsValue)){
         throw new Error("Невалидное значение");
-    } else return Number.parseFloat(value);
+    } else return $parsValue;
 }
 
 function validateCount(value){
